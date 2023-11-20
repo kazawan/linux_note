@@ -38,6 +38,25 @@ python3.11
 import rich
 #如没有错误弹出表示成功
 ```
+添加国内源
+```sh
+mkdir ~/.pip & vi ~/.pip/pip.conf 
+```
+:hammer:配置
+```sh
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+```
+最后命令检查
+```sh
+python3.11 -m pip config list
+#global.index-url='https://pypi.tuna.tsinghua.edu.cn/simple'
+#install.trusted-host='https://pypi.tuna.tsinghua.edu.cn'
+```
+
+
 
 ## 脚本 一键安装
 ```sh
@@ -46,6 +65,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.11 -y
 curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
+##todo 添加国内源
 echo done
 ```
 
