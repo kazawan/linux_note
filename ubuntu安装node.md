@@ -38,8 +38,6 @@ export NODE_PATH=/usr/lib/node_modules
 export PATH=$NODE_HOME:$PATH
 ```
 
-## 配置npm国内源
-
 ```sh
 npm config set registry https://registry.npm.taobao.org
 ```
