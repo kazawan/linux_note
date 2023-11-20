@@ -37,5 +37,13 @@ import rich
 #如没有错误弹出表示成功
 ```
 
-
+## 脚本 一键安装
+```sh
+echo starting
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.11 -y
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
+echo done
+```
 
