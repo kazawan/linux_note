@@ -48,6 +48,15 @@ npm config set registry https://registry.npm.taobao.org
 
 ## 一键安装脚本
 ```sh
-
+sudo apt update
+sudo apt-get install build-essential -y
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt update
+sudo apt install nodejs
+sudo npm install npm@latest -g
+echo 'export NODE_HOME=$(which node)' >> ~/.bashrc
+echo 'export NODE_PATH=$(npm root -g)' >> ~/.bashrc
+echo 'export PATH=$NODE_HOME:$PATH' >> ~/.bashrc
+npm config set registry https://registry.npm.taobao.org
+source ~/.bashrc
 ```
-
