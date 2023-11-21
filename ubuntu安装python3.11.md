@@ -60,6 +60,7 @@ python3.11 -m pip config list
 
 ## 脚本 一键安装
 ```sh
+#!/bin/bash
 echo starting
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update

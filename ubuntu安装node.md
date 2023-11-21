@@ -48,6 +48,7 @@ npm config set registry https://registry.npm.taobao.org
 
 ## 一键安装脚本
 ```sh
+#!/bin/bash
 sudo apt update
 sudo apt-get install build-essential -y
 curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
