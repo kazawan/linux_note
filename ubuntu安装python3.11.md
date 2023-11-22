@@ -61,12 +61,29 @@ python3.11 -m pip config list
 ## 脚本 一键安装
 ```sh
 #!/bin/bash
+clear
+echo "INSTALL PYTHON3.11"
 echo starting
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.11 -y
+clear
+echo "INSTALL PIP"
 curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 ##todo 添加国内源
+clear
+echo "PIP换源"
+PIPCONF="~/.pip/pip.conf"
+mkdir ~/.pip 
+touch ~/.pip/pip.conf
+echo "[global]" >> $PIPCONF
+echo "index-url = https://pypi.tuna.tsinghua.edu.cn/simple" >> $PIPCONF
+echo "[install]" >> $PIPCONF
+echo "trusted-host = https://pypi.tuna.tsinghua.edu.cn" >> $PIPCONF
+clear
+echo "PIP源 ==>"
+python3.11 -m pip config list
+
 echo done
 ```
 

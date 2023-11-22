@@ -52,3 +52,12 @@ python3.11 ./logtest.py
 
 
 现在系统每隔1分钟就会在文件里面写入一个时间!
+
+
+### 补充
+使用git的时候需要把打印的信息保存
+避免错误
+```sh
+/usr/bin/git pull >> ~/wk/gitlog.txt 
+```
+
