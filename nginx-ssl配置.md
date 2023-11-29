@@ -1,15 +1,15 @@
+# nginx https配置
 在nginx中使用openssl是一个常见的选择，用于提供安全的数据传输和SSL/TLS加密。以下是在nginx中使用openssl的一些常见配置和使用方法：
 
 安装OpenSSL：
 首先，确保你的系统上已经安装了OpenSSL。在大多数Linux发行版中，可以使用包管理器来安装OpenSSL。例如，在Ubuntu上可以使用以下命令安装：
-
-sql
+```sh
 sudo apt-get update  
 sudo apt-get install openssl
 生成SSL证书和私钥：
 要使用SSL/TLS加密，你需要生成一个有效的SSL证书和私钥。你可以自己生成自签名的证书，或者从受信任的证书颁发机构（CA）获取证书。以下是使用openssl生成自签名证书的示例：
-
-bash
+```
+```bash
 openssl req -x509 -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.crt -days 365
 这将生成一个名为ssl.key的私钥文件和一个名为ssl.crt的证书文件。
 3. 配置Nginx：
@@ -36,11 +36,14 @@ http {
         # ...其他配置项...  
     }  
 }
+```
+
 确保将/path/to/ssl.crt和/path/to/ssl.key替换为你实际生成的证书和私钥文件的路径。此外，还需要将server_name替换为你的域名。
 4. 检查配置并重启Nginx：
 在完成配置更改后，确保检查nginx的配置文件是否正确无误，然后重新启动nginx以使更改生效。在终端中运行以下命令：
 
-shell
+```shell
 sudo nginx -t  # 检查配置语法是否正确  
 sudo service nginx restart  # 重新启动nginx服务
 现在，你的nginx服务器应该已经配置好使用openssl提供安全的HTTPS服务了。
+```
