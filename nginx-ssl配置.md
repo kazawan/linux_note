@@ -1,4 +1,6 @@
 # NGINX 配置SSL HTTPS
+
+## 443配置
 在nginx中使用openssl是一个常见的选择，用于提供安全的数据传输和SSL/TLS加密。以下是在nginx中使用openssl的一些常见配置和使用方法：
 
 
@@ -54,3 +56,28 @@ sudo nginx -t  # 检查配置语法是否正确
 sudo service nginx restart  # 重新启动nginx服务
 ```
 现在，你的nginx服务器应该已经配置好使用openssl提供安全的HTTPS服务了。
+
+## 8080端口配置
+要将Nginx的HTTPS服务修改为使用8080端口，你需要在配置文件中进行相应的更改。找到Nginx配置文件中与HTTPS相关的`server`块，然后进行以下修改：
+
+
+```perl
+server {
+    listen 8080 ssl http2;  # 监听8080端口
+    listen [::]:8080 ssl http2;  # 监听IPv6的8080端口
+    server_name example.com;  # 替换为你的域名
+
+    ssl_certificate /path/to/ssl.crt;  # 指定SSL证书路径
+    ssl_certificate_key /path/to/ssl.key;  # 指定私钥路径
+
+    # ...其他配置项...
+}
+```
+将`listen`指令中的端口号`443`修改为`8080`，同时确保将`/path/to/ssl.crt`和`/path/to/ssl.key`替换为你实际的证书和私钥文件路径。保存配置文件后，重新启动Nginx服务：
+
+
+```shell
+sudo nginx -t  # 检查配置语法是否正确
+sudo service nginx restart  # 重新启动nginx服务
+```
+现在，你的Nginx服务器将使用8080端口提供HTTPS服务。
